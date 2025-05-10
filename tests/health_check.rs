@@ -1,7 +1,8 @@
 #[tokio::test]
+#[allow(unused_must_use)]
 async fn health_check_works() {
     // Arrange
-    spawn_app().await.expect("Failed to spawn app.");
+    spawn_app();
     let client = reqwest::Client::new();
 
     // Act
@@ -16,9 +17,9 @@ async fn health_check_works() {
     assert_eq!(Some(0), response.content_length());
 }
 
-async fn spawn_app() -> Result<(), std::io::Error> {
+#[allow(clippy::let_underscore_future)]
+async fn spawn_app() {
     let server = zero2prod::run().await.expect("Failed to bind address.");
 
     let _ = tokio::spawn(server);
-    Ok(())
 }
