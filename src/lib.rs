@@ -1,4 +1,4 @@
-use actix_web::{dev::Server, web, App, HttpResponse, HttpServer};
+use actix_web::{App, HttpResponse, HttpServer, dev::Server, web};
 
 async fn health_check() -> HttpResponse {
     HttpResponse::Ok().finish()
