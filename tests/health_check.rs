@@ -1,6 +1,9 @@
-use zero2prod::main;
+#[tokio::test]
+async fn health_check_works() {
+    // Arrange
+    spawn_app().await.expect("Failed to spawn app.");
+}
 
-#[test]
-fn dummy_test() {
-    main()
+async fn spawn_app() -> Result<(), std::io::Error> {
+    todo!()
 }
