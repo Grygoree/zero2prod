@@ -4,5 +4,5 @@
 
 * lld
 * clang
-* openssl:
+* openssl
 
