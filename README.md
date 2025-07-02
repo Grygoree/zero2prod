@@ -1,0 +1,8 @@
+
+
+# Requirements
+
+* lld
+* clang
+* openssl
+
