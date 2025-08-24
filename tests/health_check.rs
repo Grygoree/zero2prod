@@ -2,7 +2,7 @@ use std::net::TcpListener;
 
 use sqlx::{Connection, Executor, PgConnection, PgPool};
 use uuid::Uuid;
-use zero2prod::configuration::{self, DatabaseSettings, get_configuration};
+use zero2prod::configuration::{DatabaseSettings, get_configuration};
 
 pub struct TestApp {
     pub address: String,
@@ -75,7 +75,6 @@ pub async fn configure_database(config: &DatabaseSettings) -> PgPool {
 async fn subscribe_returns_a_200_for_valid_form_data() {
     // Arrange
     let app = spawn_app().await;
-    let configuration = configuration::get_configuration().expect("Failed to read configuration");
     let client = reqwest::Client::new();
 
     //Act
